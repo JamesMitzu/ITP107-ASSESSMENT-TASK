@@ -24,7 +24,10 @@ void main() {
     print("7. INVENTORY SUMMARY");
     print("0. EXIT");
     stdout.write("Enter your choice: ");
-    int choice = int.tryParse(stdin.readLineSync() ?? '0') ?? 0;
+    try{
+    int choice = int.parse(stdin.readLineSync()!);
+
+
 
     switch (choice) {
       case 1:
@@ -255,8 +258,17 @@ void main() {
         print("----------------------------");
         break;
 
+        case 0:
+        print("THANK YOU FOR USING INVENTORY SYSTEM! PROGRAM ENDED.");
+        isNotExit = false;
+        break;
+
       default:
         print("ENTER A VALID CHOICE!");
+    }
+  
+    }catch(numberFormatException){
+      print("Invalid Input!");
     }
   }
 }
